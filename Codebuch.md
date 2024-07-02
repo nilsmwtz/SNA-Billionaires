@@ -1,0 +1,53 @@
+# Codebuch Billionaires
+
+Codebuch Stand 2024-07
+
+## **Ursprung und Datenerhebung**
+
+Wir erheben die Daten der 50 reichsten Milliardäre weltweit nach der
+Forbes Liste.
+
+Das Netzwerk ist ein gerichtetes two-mode Netzwerk, dass aus
+Milliardären und Institutionen besteht. Institutionen können sein:
+Unternehmen, Vereine, Universitäten, oder auch Länder.
+
+## **Nodelist**
+
+**id:** “Person und Universität: erste zwei Buchstaben des Vornamens und
+erste zwei Buchstaben des Nachnamens; (klein geschrieben) Bsp.: Bill
+Gates = biga Unternehmen: die ersten vier Buchstaben, Land: Abkürzung
+nach Iso-Code (Übersicht siehe:
+<https://www.oenb.at/Statistik/Klassifikationen/ISO-Codes/ISO-Code-Verzeichnis-fuer-Laender--und-Waehrungscodes.html>”
+
+**id_name**: echter Name der Person oder Institution (wenn
+Institution/Land nur Name, in den weiteren Spalten NA) wealth ” Vermögen
+in Billionen (mit punkt (zb: 19.5)) (Auf Forbes die rechte Zahl, 2024
+Billionaires Net Worth) ”
+
+**gender:** Geschlecht
+
+1= Männer 2= Frauen 3= Divers
+
+**age:** Numerisches Alter nationality Nationalität nach ISO-Code,
+Orientierung an Forbes Liste
+
+**university:** Universität/Ausbildungsstätte job gelernter Beruf, Name
+auf Englisch
+
+**money_source**:
+
+1= Erbe, 2= Gründung/Erfindung, 3= Hedgefund/Aktien, 4= Immobilien, 5=
+Scheidung, 6= Unternehmensführung; Prinzip doppelte zahlen:
+12=Erbe&Gründung/Erfindung, 13=Erbe&Aktien, 14=Erbe&Immobilien …”
+
+**industry:** welcher Branche gehört die Person an? Name auf Englisch,
+kleingeschrieben nach forbes liste, bei leerzeichen und & snake case!
+
+## **Edgelist:**
+
+**id:** siehe Nodelist
+
+**relation**: 1= Besitzer/Eigentümer, 2=Gründer, 3=Arbeitsbeziehung, 4=
+investiert in , 5=besitzt Anteile, 6= Unternehmen sponsert, 7=
+Mitgliedschaft, 8= ist Staatsbürger\*in, 9= hat dort studiert, 10=
+Bekanntschaft/Freundschaft, 11= Familie,
