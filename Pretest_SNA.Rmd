@@ -1,0 +1,43 @@
+---
+title: "SNA Billionaires Pretest"
+author: "Franziska Zeller"
+date: "2024-06-24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(igraph)
+library(tidygraph)
+library(tidyverse)
+```
+
+
+```{r Netzwerk einlesen}
+
+# edgelist
+el <- read.csv("https://raw.githubusercontent.com/nilsmwtz/SNA-Billionaires/main/Pretest_Edgelist.csv", header=T, as.is=T, sep = ",")
+nl <- read.csv("https://raw.githubusercontent.com/nilsmwtz/SNA-Billionaires/main/Pretest_Nodelist.csv", header=T, as.is=T, sep = ",")
+
+# erstellt das Netzwerk als tidygraph-Objekt
+
+billionaires <- tbl_graph(edges = el, directed = FALSE)
+
+billionaires
+
+```
+
+
+```{r Netzwerk "Billionaires" Visualisieren fig.height=9, fig.width=16}
+
+plot(billionaires,
+  asp = 0,
+  layout = layout_nicely,
+  vertex.color="lavender",
+  vertex.size=degree(billionaires)*1.75,
+  edge.arrow.size=.2,
+  edge.arrow.color="black",
+  main="Pretest Netzwerk Billionaires"
+  )
+```
+
