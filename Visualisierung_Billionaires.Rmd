@@ -1,0 +1,56 @@
+---
+title: "Billionaires"
+author: "Franziska Zeller, Ruth Klages, Julia Heim, Annabelle Krause, Nils Misselwitz"
+date: "2024-10-07"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(igraph)
+library(tidygraph)
+library(tidyverse)
+```
+
+
+
+```{r Netzwerk "Billionaires" Visualisieren fig.height=80, fig.width=100}
+
+plot(bil,
+  asp = 0,
+  layout = layout_with_fr,
+  vertex.color="lavender",
+  vertex.size=degree(bil)*1.25,
+  edge.arrow.size=.2,
+  edge.arrow.color="black",
+  main="SNA Netzwerk Billionaires"
+  )
+```
+
+
+```{r}
+
+# Ich habe Chat GPT noch nach einer besser lesbaren Visualisierung des Neztwerkes gefragt, und diesen Code erhalten: 
+
+# Benötigtes Paket laden
+
+library(ggraph)
+
+# Knotengröße basierend auf Degree berechnen
+vertex_degree <- degree(bil)  # Degree-Werte berechnen
+
+# Visualisierung mit ggraph
+ggraph(bil, layout = 'fr') +  # Fruchterman-Reingold Layout
+  geom_edge_link(aes(start_cap = label_rect(node1.name), end_cap = label_rect(node2.name)),
+                 arrow = arrow(length = unit(2, 'mm')), 
+                 edge_colour = "gray") +  # Kantenfarbe und Pfeilgröße
+  geom_node_point(aes(size = vertex_degree), color = "lavender") +  # Knotengröße anhand des Degree-Werts
+  geom_node_text(aes(label = name), repel = TRUE, size = 3, max.overlaps = Inf) +  # Labels ohne Überlappungsbeschränkung
+  scale_size_continuous(range = c(3, 10)) +  # Knoten mit minimaler und maximaler Größe skalieren
+  theme_void() +  # Entfernt unnötigen Hintergrund
+  ggtitle("SNA Netzwerk Billionaires")  # Titel hinzufügen
+
+
+
+```
