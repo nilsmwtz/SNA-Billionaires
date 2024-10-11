@@ -27,7 +27,7 @@ bil <- tbl_graph(edges = el, directed = FALSE)
 bil
 ```
 
-```{r Netzwerk "Billionaires" Visualisieren fig.height=80, fig.width=100}
+```{r Netzwerk "Billionaires" Visualisieren fig.height=9, fig.width=16}
 
 plot(bil,
   asp = 0,
