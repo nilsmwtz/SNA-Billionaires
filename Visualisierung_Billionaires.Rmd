@@ -1,0 +1,51 @@
+---
+title: "Billionaires"
+author: "Franziska Zeller, Ruth Klages, Julia Heim, Annabelle Krause, Nils Misselwitz"
+date: "2024-10-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(igraph)
+library(tidygraph)
+library(tidyverse)
+```
+
+```{r Netzwerk einlesen}
+
+# edgelist
+el <- read.csv("https://raw.githubusercontent.com/nilsmwtz/SNA-Billionaires/refs/heads/main/edgelist.csv", header=T, as.is=T, sep = ",")
+
+# nodelist
+nl <- read.csv("https://raw.githubusercontent.com/nilsmwtz/SNA-Billionaires/refs/heads/main/nodelist.csv", header=T, as.is=T, sep = ",")
+
+# erstellt das Netzwerk als tidygraph-Objekt
+
+bil <- tbl_graph(nodes = nl, edges = el, directed = FALSE)
+
+bil
+```
+
+```{r Netzwerk "Billionaires" Visualisieren fig.height=9, fig.width=16}
+
+plot(bil,
+  asp = 0,
+  layout = layout_with_fr,
+  vertex.color="lavender",
+  vertex.size=degree(bil)*1.25,
+  edge.arrow.size=.2,
+  edge.arrow.color="black",
+  main="SNA Netzwerk Billionaires"
+  )
+```
+
+```{r Filtern nach Erbe}
+bil_ms <- bil %>% 
+  activate(nodes) %>% 
+  filter(money_source == 1)
+bil_ms
+
+
+```
+
