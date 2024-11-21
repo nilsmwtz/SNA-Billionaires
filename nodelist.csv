@@ -1,4 +1,4 @@
-id,id_name,wealth,forbes_ranking,gender,birth_year,nationality,university,learned_job,money_source,industry, 
+id,id_name,wealth,forbes_ranking,gender,birth_year,nationality,university,learned_job,money_source,industry,type
 us,United States of America,0,0,0,0,NA,NA,NA,0,NA,3
 mx,Mexico,0,0,0,0,NA,NA,NA,0,NA,3
 in,India,0,0,0,0,NA,NA,NA,0,NA,3
