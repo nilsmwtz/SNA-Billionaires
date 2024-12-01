@@ -33,7 +33,7 @@ Das Netzwerk ist ein ungerichtetes two-mode Netzwerk, dass aus Milliardären und
 
 **nationality** Nationalität nach ISO-Code (zwei Buchstaben!) Orientierung an Forbes Liste (bei Institution/Firma: Land, in dem die Institution ihren Sitz hat)
 
-**university**: Universität/Ausbildungsstätte, ganzer Name mit Unterstrich und kleingeschrieben, bei mehreren Abschlüssen den höchsten und neusten (bei Institution/Firma: NA)
+**university**: Universität/Ausbildungsstätte, ganzer Name mit Unterstrich und kleingeschrieben, bei mehreren Abschlüssen den höchsten (bei Institution/Firma: NA)
 
 **learned_job**: gelernter Beruf, Name auf Englisch (Kleingeschrieben und Unterstrich bei Leerzeichen); (bei Institution/Firma: NA)
 
